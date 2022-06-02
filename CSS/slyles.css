@@ -189,9 +189,8 @@ p {
   text-align: center;
   padding: 6px 22px;
   border-radius: 4px;
-  transition: color var(--duration) var(--timing-function);
-  transition: background-color var(--duration) var(--timing-function);
-}
+  transition: color var(--duration) var(--timing-function), background-color var(--duration) var(--timing-function), box-shadow var(--duration) var(--timing-function);
+  }
 
 .button:hover,
 .button:focus {
@@ -553,9 +552,7 @@ p {
   justify-content: center;
   align-items: center;
   color: var(--logo-companies-color);
-  transition: color var(--duration) var(--timing-function);
-  transition: background-color var(--duration) var(--timing-function);
-  transition: fill var(--duration) var(--timing-function);
+   transition: background-color var(--duration) var(--timing-function), color var(--duration) var(--timing-function);
 }
 .team-contacts > li :not(:last-child) {
   margin-right: 10px;
@@ -567,9 +564,7 @@ p {
   color: var(--white-text-color);
   background-color: var(--accent-color);
 }
-.team-contact-list a {
-  transition: fill var(--duration) var(--timing-function);
-}
+
 .team-contact-list a :hover {
   fill: currentColor;
 }
@@ -651,7 +646,7 @@ p {
   box-sizing: border-box;
   border-radius: 4px;
   color: #afb1b8;
-  transition: color var(--duration) var(--timing-function);
+  transition: color var(--duration) var(--timing-function), border var(--duration) var(--timing-function);
 }
 .company-logo {
   fill: currentColor;
@@ -705,7 +700,7 @@ p {
   border-radius: 4px;
 
   transform: translate(-50%, -50%);
-  transition: transform var(--duration) var(--timing-function) ;
+  transition: transform var(--duration) var(--timing-function);
 }
 .btn-modal-close {
   position: absolute;
@@ -758,6 +753,9 @@ p {
   transition: transform var(--duration) var(--timing-function);
 }
 .example-project-link:hover .overlay {
+  transform: translateY(0);
+}
+.example-project-link:focus .overlay {
   transform: translateY(0);
 }
 .overlay .overlay-text {
