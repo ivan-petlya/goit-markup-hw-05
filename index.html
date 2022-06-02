@@ -22,7 +22,7 @@
     <title>Home_work_5</title>
   </head>
   <body>
-    <!--header-->
+      <!--header-->
     <header class="header">
       <div class="main-nav container">
         <a class="text-logo" href="./index.html">
@@ -30,9 +30,9 @@
         </a>
         <nav>
           <ul class="navigate list">
-            <li><a href="./index.html" class="active">Студия</a></li>
-            <li><a href="./portfolio.html">Портфолио</a></li>
-            <li><a href="#contacts">Контакты</a></li>
+            <li class="item"><a href="./index.html" class="active link">Студия</a></li>
+            <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
+            <li class="item"><a href="#contacts" class="link">Контакты</a></li>
           </ul>
         </nav>
         <ul class="contact list header-contact">
@@ -62,7 +62,7 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="main-button" type="button">Заказать услугу</button>
+          <button data-modal-open class="main-button " type="button">Заказать услугу</button>
         </div>
       </section>
       <!--difference-->
@@ -93,7 +93,6 @@
                 кадров влечет за собой.
               </p>
             </li>
-
             <li class="item">
               <div class="differens-icon-box">
               <svg width="70" height="70">
@@ -126,28 +125,36 @@
           <h2 class="section-header">Чем мы занимаемся</h2>
           <ul class="what-are-we-doing-list list">
             <li class="item">
+              <div class="we-doing-item-thumb">
               <img
                 src="images/coding.jpg"
                 alt="coding"
                 height="295"
                 width="370"
-              />
+              /><div class="we-doing-item">
+            <h3>Десктопные приложения</h3></div>
+          </div>
             </li>
             <li class="item">
+              <div class="we-doing-item-thumb">
               <img
                 src="images/mobile-dev.jpg"
                 height="295"
                 width="370"
                 alt="mobile develop"
-              />
+              /><div class="we-doing-item">
+            <h3>Мобильные приложения</h3></div>
+          </div>
             </li>
-            <li class="item">
+            <li class="item"><div class="we-doing-item-thumb">
               <img
                 src="images/color-palet.jpg "
                 height="295"
                 width="370"
                 alt="creative-artist-web-design-with-working-colour-selection-graphic-tablet"
-              />
+              /><div class="we-doing-item">
+            <h3>Дизайнерские решения</h3></div>
+          </div>
             </li>
           </ul>
         </div>
@@ -435,5 +442,16 @@
         </div>
       </div>
     </footer>
+ <div data-modal class="backdrop is-hidden" >
+        <div class="modal"> 
+                            <button data-modal-close class="btn-modal-close" type="button" data-modal-close>
+  <svg class="modal-btn" width="30" height="30">
+                <use href="./images/sprite.svg#close-ico"></use>
+              </svg>
+                                    </button>
+                                    <p>Оставьте свои данные, мы вам перезвоним</p>
+            </div>
+        </div>
+        <script src="./js/modal.js"></script>
   </body>
 </html>

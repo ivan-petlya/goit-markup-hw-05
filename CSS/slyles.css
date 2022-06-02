@@ -15,8 +15,11 @@
   --accent-color: #2196f3;
   --main-button-hover-color: #188ce8;
   --main-bg-color: #ffffff;
-  --first-bg-color: #f5f4fa;
+  --first-bg-color: hwb(250 96% 2%);
   --secondary-bg-color: #2f303a;
+  --backdrop-bg-color: rgba(0, 0, 0, 0.2);
+  --duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   box-sizing: border-box;
@@ -108,6 +111,7 @@ p {
   padding-top: 32px;
   padding-bottom: 32px;
   display: block;
+  transition: color var(--timing-function) var(--duration);
 }
 .navigate a:focus,
 .navigate a:hover {
@@ -135,6 +139,7 @@ p {
   fill: currentColor;
   margin-right: 10px;
   padding: 0px;
+  transition: fill var(--duration) var(--timing-function);
 }
 .icon-contact:hover {
   fill: var(--accent-color);
@@ -161,6 +166,7 @@ p {
 .contact a {
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color var(--duration) var(--timing-function);
 }
 
 .contact-footer a:focus,
@@ -183,6 +189,8 @@ p {
   text-align: center;
   padding: 6px 22px;
   border-radius: 4px;
+  transition: color var(--duration) var(--timing-function);
+  transition: background-color var(--duration) var(--timing-function);
 }
 
 .button:hover,
@@ -210,6 +218,9 @@ p {
   max-width: 100%;
   height: auto;
 }
+.list-filter .item {
+  transition: box-shadow var(--duration) var(--timing-function);
+}
 .list-filter {
   display: flex;
   justify-content: center;
@@ -220,6 +231,7 @@ p {
 .example-project-link {
   display: block;
   text-decoration: none;
+  transition: box-shadow var(--timing-function) var(--duration);
 }
 .example-project-link:hover,
 .example-project-link:focus {
@@ -335,6 +347,8 @@ p {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
   fill: var(--main-bg-color);
+  transition: fill var(--duration) var(--timing-function);
+  transition: background-color var(--duration) var(--timing-function);
 }
 
 .icon-contact {
@@ -539,6 +553,9 @@ p {
   justify-content: center;
   align-items: center;
   color: var(--logo-companies-color);
+  transition: color var(--duration) var(--timing-function);
+  transition: background-color var(--duration) var(--timing-function);
+  transition: fill var(--duration) var(--timing-function);
 }
 .team-contacts > li :not(:last-child) {
   margin-right: 10px;
@@ -549,6 +566,9 @@ p {
 .social-link-team:hover {
   color: var(--white-text-color);
   background-color: var(--accent-color);
+}
+.team-contact-list a {
+  transition: fill var(--duration) var(--timing-function);
 }
 .team-contact-list a :hover {
   fill: currentColor;
@@ -574,6 +594,40 @@ p {
 .what-are-we-doing-list .item {
   width: 100%;
 }
+.what-are-we-doing-list img {
+  display: block;
+}
+.we-doing-item-thumb {
+  position: relative;
+}
+.we-doing-item {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  letter-spacing: 3%;
+  width: 370px;
+  height: 70px;
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 48, 58, 0.8),
+    rgba(47, 48, 58, 0.8)
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.we-doing-item > h3 {
+  text-transform: uppercase;
+  color: var(--white-text-color);
+  font-size: 14px;
+  line-height: 1.14;
+  white-space: nowrap;
+  letter-spacing: 0.42px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /*---------------наши клиенты----------------------*/
 .clients-section h2 {
@@ -597,6 +651,7 @@ p {
   box-sizing: border-box;
   border-radius: 4px;
   color: #afb1b8;
+  transition: color var(--duration) var(--timing-function);
 }
 .company-logo {
   fill: currentColor;
@@ -607,4 +662,107 @@ p {
 .client-company-link:focus {
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
+}
+/* ****************modal******************** */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  visibility: none;
+  opacity: 1;
+  background-color: var(--backdrop-bg-color);
+
+  transition: opacity var(--duration) var(--timing-function),
+    visibility var(--duration) var(--timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: (-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--first-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%);
+  transition: transform var(--duration) var(--timing-function);
+}
+.btn-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--first-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* ++++++++++++++++++++++хедер подчеркивания активной страницы++++++++++++++++++++++++++ */
+.active {
+  position: relative;
+}
+.active::after {
+  position: absolute;
+  bottom: -5px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+/* ++++++++++++++++++card-examples++++++++++ */
+.box {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  background-image: linear-gradient(
+    to right,
+    rgba(33, 150, 243, 0.9),
+    rgba(33, 150, 243, 0.9)
+  );
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  /* overflow: hidden; */
+  transition: transform var(--duration) var(--timing-function);
+}
+.example-project-link:hover .overlay {
+  transform: translateY(0);
+}
+.overlay .overlay-text {
+  padding: 63px 24px;
+    color: var(--white-text-color);
+  text-align: left;
+  font-size: 18px;
 }
